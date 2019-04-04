@@ -1,34 +1,45 @@
-!DOCTYPE html>
+<?php
+	include "conexao.php";
+?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Trabalho_Tarefas</title>
 		 <link rel="stylesheet" href="css.css">
+		 <script>
+			function tranfere(){
+				
+			}
+		 </script>
 	</head>
 	<body>
 		<div id="menu">
-			<h2>Gerenciar Tarefas</h2><hr>
+			<h2>Gerenciar Tarefas</h2>
 		</div>
 		<div id="titulos">
 	<!---------->
 			<div id="fazer">
 				<h3>A FAZER</h3>
-				<input type="text" name="comentario" id="text1">
-				<br>
+				<p id="campo1">1</p>
+				<!--<input type="text" name="comentario" id="text1">-->
+				<br><br>
 				<input type="button" name="botao1" id="bot1" value="add nova tarefa"/>
 			</div>
 	<!---------->
 			<div id="fazendo">
 				<h3>FAZENDO</h3>
-				<input type="text" name="comentario" id="text2">
-				<br>
-				<input type="button" name="botao1" id="bot1" value="add nova tarefa"/>
+				<p id="campo1">1</p>
+				<!--<input type="text" name="comentario" id="text2">-->
+				<br><br>
+				<input type="button" name="botao1" id="bot2" value="add nova tarefa"/>
 			</div>
 	<!---------->
 			<div id="feito">
 				<h3>FEITO</h3>
-				<input type="text" name="comentario" id="text3">
-				<br>
-				<input type="button" name="botao1" id="bot1" value="add nova tarefa"/>
+				<p id="campo1">1</p>
+				<!--<input type="text" name="comentario" id="text3">-->
+				<br><br>
+				<input type="button" name="botao1" id="bot3" value="add nova tarefa"/>
 			</div>
 		</div>
 	</body>

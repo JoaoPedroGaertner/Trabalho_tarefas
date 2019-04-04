@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 	<head>
 		<title>Trabalho_Tarefas</title>
@@ -6,17 +6,29 @@
 	</head>
 	<body>
 		<div id="menu">
-			<h2>um titulo ae</h2>
+			<h2>Gerenciar Tarefas</h2><hr>
 		</div>
 		<div id="titulos">
+	<!---------->
 			<div id="fazer">
-				<h3>opa</h3>
+				<h3>A FAZER</h3>
+				<input type="text" name="comentario" id="text1">
+				<br>
+				<input type="button" name="botao1" id="bot1" value="add nova tarefa"/>
 			</div>
+	<!---------->
 			<div id="fazendo">
-				<h3>opa2</h3>
+				<h3>FAZENDO</h3>
+				<input type="text" name="comentario" id="text2">
+				<br>
+				<input type="button" name="botao1" id="bot1" value="add nova tarefa"/>
 			</div>
+	<!---------->
 			<div id="feito">
-				<h3>opa3</h3>
+				<h3>FEITO</h3>
+				<input type="text" name="comentario" id="text3">
+				<br>
+				<input type="button" name="botao1" id="bot1" value="add nova tarefa"/>
 			</div>
 		</div>
 	</body>

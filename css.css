@@ -1,0 +1,43 @@
+ #fazer{
+	width: 300px;
+    max-width: 100%;
+    display: inline;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+	position: relative;
+	background-color:#FF6347;
+ }
+ #fazendo{
+	width: 300px;
+    max-width: 100%;
+    display: inline;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+	position: relative;
+	background-color:#fcff68;
+ }
+#feito{
+	width: 300px;
+    max-width: 100%;
+    display: inline;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+	position: relative;
+	background-color:#32CD32;
+ }
+ #titulos {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    color: #222E50;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+}

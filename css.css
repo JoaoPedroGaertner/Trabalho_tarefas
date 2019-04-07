@@ -13,7 +13,7 @@
     margin-top: 20px;
 	text-align:center;
 	border: 2px #222E50 solid;
-	 border-radius: 20px;
+	border-radius: 20px;
  }
  #fazer{
 	 background-color:#FF6347;
@@ -46,6 +46,10 @@
 #campo1, #campo2, #campo3{
 	background-color:white;
 	z-index:3;
+	border: 2px #222E50 solid;
+	width:300px;
+	text-align:left;
+	/* display:none; */
 }
 #bot1, #bot2, #bot3{
 	padding-bottom:2px;
@@ -78,6 +82,6 @@
     color: white;
     left:15%;
 }
-#formulario{
+#formulario1, #formulario2{
 	display:none;
 }

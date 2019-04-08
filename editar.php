@@ -1,6 +1,6 @@
 <?php
 	
-	$id=$_GET['id'];
+	$id = POST['id'];
 	
 	include "conexao.php";
     $sql = "SELECT * FROM tarefas where id=$id";
@@ -22,10 +22,10 @@
         tipo = '$tipo',
 
         WHERE 
-        id_aluno = '$id'";
+        id= '$id'";
         
-        $aluno = $connection -> prepare($sql);
-        $aluno -> execute();
+        $user = $connection -> prepare($sql);
+        $user -> execute();
         $connection = null;
 	}
 ?>
@@ -36,9 +36,7 @@
 		 <link rel="stylesheet" href="css.css">
 		 <script type="text/javascript" href="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
 		 <script>
-			// function comentarios(){
-				// document.getElementById('campo1').style.display = "block";
-			// }
+
   
 		 </script>
 	</head>

@@ -5,6 +5,7 @@
 			$nome = $_POST['nome'];
 			$descricao = $_POST['descricao'];
 			$tipo = $_POST['tipo'];
+
 		
 			include "conexao.php";
 			$sql = "INSERT INTO tarefas 
@@ -14,6 +15,7 @@
 			$connection = null;
 		}
 		
+		
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,9 +24,7 @@
 		 <link rel="stylesheet" href="css.css">
 		 <script type="text/javascript" href="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
 		 <script>
-			function comentarios(){
-				document.getElementById('campo1').style.display = "block";
-			}
+
 			
 		 </script>
 	</head>

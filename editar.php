@@ -14,14 +14,36 @@
         $descricao = $_POST['descricao'];
         $tipo = $_POST['tipo'];
         $data = $_POST['data'];
-
+        $data_cadastro = $_POST['data2'];
+		
+		
+		$data1 = $_POST['data'];
+		$data2 = $_POST['data2'];
+			
+			// converte as datas para o formato timestamp
+			
+			$d1 = strtotime($data1); 
+			$d2 = strtotime($data2);
+			
+			// verifica a diferença em segundos entre as duas datas e divide pelo número de segundos que um dia possui
+			
+			$dataFinal = ($d2 - $d1)/86400 ;
+			
+			// caso a data 2 seja menor que a data 1
+			
+			if($dataFinal < 0)
+			$dataFinal = $dataFinal * -1;
+			
+		$dias = $dataFinal;
 
 
         $sql = "UPDATE tarefas 
         SET
         descricao = '$descricao',
         tipo = '$tipo',
-        data = '$data'
+        data = '$data',
+        data_cadastro = '$data_cadastro',
+        dias = '$dias'
 
         WHERE 
         id = '$id'";
@@ -46,13 +68,16 @@
 			<form id='form1' action='' method='POST'>
 					Descricao<br><textarea id="desc" name='descricao'  maxlength='50' placeholder=''><?php echo $a['descricao'];?></textarea><br><br>
 					Tipo<br><select id="tip" name='tipo'>
-						<option disabled selected>Selecione o estado </option>
+						<option value="<?php $tipo ?>"><?php echo $a['tipo'];?></option>
+						<option value="<?php $tipo ?>"></option>
 						<option value='1'>A Fazer</option>
 						<option value='2'>Fazendo</option>
 						<option value='3'>Feito</option>
 						</select><br><br>
-				   Data<br><input type='date' name='data' class='formulario'/>
-						<br><br>
+						
+					Data Final de entrega<br><input type='date' name='data' class='formulario'/><br><br>
+					Data atual<br><input type='date' name='data2' class='formulario'/><br><br>
+					
 				<input type='submit' id="enviar" name='salvar2' value='salvar'/><br><br>
 			</form><br>
 		</div>

@@ -1,16 +1,17 @@
  body{
-	 background-color:#DCDCDC;
+	 background-image:url('parede.jpg');
  }
  #fazer, #fazendo, #feito{
-	width: 300px;
+	width: 390px;
     max-width: 100%;
     display: inline;
-    padding: 20px;
+    padding: 50px;
 	padding-top:5px;
-	padding-bottom:5px;
+	padding-bottom:20px;
+	/* padding-left:3px; */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 15px;
 	text-align:center;
 	border: 2px #222E50 solid;
 	border-radius: 20px;
@@ -25,7 +26,7 @@
 	background-color:#32CD32;
  }
  #titulos {
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
@@ -37,11 +38,24 @@
     justify-content: space-between;
     text-align: left;
 }
+ #edt, #exc{
+	text-align:center;
+	background-color:#483D8B;
+	z-index:3;
+	width:30%;
+	margin-left:35%;
+	margin-top:5%;
+	padding:10px;
+	border-radius:20px;
+}
 #menu{
 	text-align:center;
-}
-#text1, #text2, #text3{
-	width:300px;
+	background-color:#483D8B;
+	z-index:3;
+	width:30%;
+	margin-left:35%;
+	padding:10px;
+	border-radius:20px;
 }
 #campo1, #campo2, #campo3{
 	background-color:white;
@@ -51,17 +65,59 @@
 	text-align:left;
 	/* display:none; */
 }
-#bot1, #bot2, #bot3{
-	padding-bottom:2px;
-	padding:10px;
+#bot1{
+	/* padding-bottom:2px; */
+	/* padding:0px; */
     border: 2px #222E50 solid;
     border-radius: 5px;
     background-color: #246EB9;
     color: white;
     text-align: center;
-    width: 50%;
+    width: 250px;
     box-sizing: border-box;
-    margin:0 auto;
+    margin-left:10px;
+	/* float:left; */
+	height:50px;
+	/* padding-left:3px; */
+}
+#enviar{
+	/* padding-bottom:2px; */
+	/* padding:0px; */
+    border: 2px #222E50 solid;
+    border-radius: 5px;
+    background-color: #246EB9;
+    color: white;
+    text-align: center;
+    width: 100px;
+    box-sizing: border-box;
+    margin-left:10px;
+	height:50px;
+	margin-left:120px;
+}
+#enviar2{
+    border: 2px #222E50 solid;
+    border-radius: 5px;
+    background-color: #246EB9;
+    color: white;
+    text-align: center;
+    width: 100px;
+    box-sizing: border-box;
+    margin-left:10px;
+	height:50px;
+	border-top:50%;
+	float:left;
+	margin-top:408px;
+	margin-left:122px;
+	position:absolute;
+}
+#tip, #desc{
+	border: 2px #222E50 solid;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    margin-left:10px;
+	height:50px;
+	color:black;
 }
 
 #text-arduino2,#text-RFID2
@@ -84,4 +140,37 @@
 }
 #formulario1, #formulario2{
 	display:none;
+}
+#form, #form1, #form2{
+	background-color:gray;
+}
+.bots{
+	border: 2px #222E50 solid;
+    border-radius: 5px;
+    background-color: #246EB9;
+    color: white;
+    /* text-align: center; */
+    width: 80px;
+    box-sizing: border-box;
+    margin-left:10px;
+	display:inline block;
+	height:50px;
+	
+}
+.tabelas{
+	width:124%; 
+	padding:0px; 
+	margin:2px;
+	background-color:white;
+	border-radius:5px;
+	/* border-bottom:10px; */
+	position:relative;
+	float:left;
+	left:-49px;
+}
+.exclu{
+	background-image:url('lixeira.png');
+}
+.tab{
+	width:70px;
 }

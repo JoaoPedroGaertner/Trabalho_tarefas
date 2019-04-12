@@ -1,18 +1,7 @@
 <?php	
-	include "conexao.php";	
-			
 	
-	$sql = "SELECT * FROM tarefas";
-	$user = $connection -> prepare($sql);
-    $user -> execute();
-	$connection = null;
+				
 	
-	foreach($user as $a){
-        $id = $a['id'];
-        $nome = $a['nome'];
-        $descricao = $a['descricao'];
-        $tipo = $a['tipo'];
-	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,8 +9,9 @@
 		<title>Trabalho_Tarefas</title>
 		 <link rel="stylesheet" href="css.css">
 		 <link rel="stylesheet" href="pace.css">
-		 <link href="/pace/themes/pace-theme-barber-shop.css" rel="stylesheet" />
-
+		 <link rel="stylesheet" href="microtip.css">
+		<link href="/pace/themes/pace-theme-barber-shop.css" rel="stylesheet" /> 
+		
 		<!-- include alertify.css -->
 		<link rel="stylesheet" href="css/alertify.css">
 
@@ -30,98 +20,203 @@
 
 		<!-- include alertify script -->
 		<script src="Js/alertify.js"></script>
-			
-		 <script>
-			function aparecer(){
-				document.getElementById('formulario1').style.display = "block";
-				
-			}
-			function aparecer2(){
-				document.getElementById('formulario2').style.display = "block";
-				
+		<script>
+			function comentarios(){
+				alertify.success('Cadastrado com sucesso!');
 			}
 
-			function comentarios(){
-				document.getElementById('campo1').style.display = "block";
+			function aparecer(){
+				document.getElementById('formulario1').style.display = "block";
+				document.getElementById('enviar2').style.display = "block";
+				
+			}	
+			function voltar(){
+				document.getElementById('formulario1').style.display = "none";
+				document.getElementById('enviar2').style.display = "none";
 			}
-			function comentar(){
-				alertify.confirm("This is a confirm dialog.",
+			function comentar2(id){
+				
+				var ids = id;
+				var dados = {ids:ids}
+				alertify.confirm('Excluir o card '+ids,
 				  function(){
 					alertify.success('Ok');
+					$.post('excluir.php',dados,function(retorna){
+						
+					
+					});
+					
 				  },
 				  function(){
 					alertify.error('Cancel');
 				  });
-			}
+				 } 
 			
-			
-		 </script>
-			
-		 
+			</script>
+					
+	 
 	</head>
-	<body onload="esconder()">
+	<body >
 <?php
 	include "cadastrar.php";
-	include "editar.php";
-?>
+	// include "calculo.php";
+	// include "editar.php";
+	// include "excluir.php"
+?>	
 		<div id="menu">
-			<h2>Gerenciar Tarefas</h2>
+			<center><a aria-label='Adicionar um novo card' data-microtip-position='up' role='tooltip'>
+			<input type="button" name="botao1" id="bot1" onclick="aparecer()" value="ADD NOVO CARD" /></a>
+			<input type='button' id='enviar2' name='voltar'  onclick='voltar()' value="Voltar" style="display:none;"/></center><br>
+			
+			<div id="formulario1">
+			
+			</div>
 		</div>
 		<br>
 		<div id="titulos">
+		
 <!----fazer------>
 			<div id="fazer">
 				<h3>A FAZER</h3>
-				<table border="2" style="width:100%; max-width:100%;">
+				<table border="1" class="tabelas">
 					<tr>
 						<th>Descrição</th>
-						<th>Editar</th>
-						<th>Excluir</th>
+						<th class="tab">Editar</th>
+						<th class="tab">Excluir</th>
+						<th class="tab">Dias Restantes</th>
 					</tr>
             <?php
-                    echo "<tr>";
+					include "conexao.php";	
+					$sql = "SELECT * FROM tarefas";
+					$usere = $connection -> prepare($sql);
+					$usere -> execute();
+					$connection = NULL;
+					
+                    foreach($usere as $a){
+					$id = $a['id'];
+					$descricao = $a['descricao'];
+					$tipo = $a['tipo'];
+					$dias = $a['dias'];
+					
+					
+					if($tipo == '1'){
+					echo "<tr>";
                     echo "<td>$descricao</td>";
-                    echo "<td><img src='editar.png' name='editar' id='edit' onclick='aparecer2()' style='width:25px;'>
+                    echo "<td><a href='editar.php?id=$id&descricao=$descricao' aria-label='Editar' data-microtip-position='up' role='tooltip'>
+					<img src='editar.png' id='edit' name='editar'  style='width:25px;'>
                     </a></td>";
-                    echo "<td><img src='lixeira.png' name='excluir' id='ex' onclick='()' style='width:25px;'>
-                    </a></td>";
+                    echo "<td>
+					<button class='exclu' onclick='comentar2($id)' aria-label='Excluir' data-microtip-position='up' role='tooltip'>
+					<img src='lixeira.png' name='excluir' id='ex'  style='width:25px;'>
+					</button>
+                    </td>";
+					echo "<td>$dias</td>";
+					// echo "<td><a href='calculo.php?id=$id'><img src='editar.png' id='edit' name='editar'  style='width:25px;'></a></td>";
                     echo "</tr>"; 
+					}
+					}
             ?>
 				</table>
 				<br><br>
-				<input type="button" name="botao1" id="bot1" onclick="aparecer()" value="add nova tarefa"/>
+				
 			</div>
 <!----fazendo------>
 			<div id="fazendo">
 				<h3>FAZENDO</h3>
-				<p id="campo2">1</p>
-				<!--<input type="text" name="comentario" id="text2">-->
+				<table border="1" class="tabelas">
+					<tr>
+						<th>Descrição</th>
+						<th class="tab">Editar</th>
+						<th class="tab">Excluir</th>
+						<th class="tab">Dias Restantes</th>
+					</tr>
+            <?php
+			
+				include "conexao.php";	
+					$sql = "SELECT * FROM tarefas";
+					$usere = $connection -> prepare($sql);
+					$usere -> execute();
+					$connection = NULL;
+					
+                    foreach($usere as $a){
+					$id = $a['id'];
+					$descricao = $a['descricao'];
+					$tipo = $a['tipo'];
+					$dias = $a['dias'];
+	
+					if($tipo == '2'){
+					echo "<tr>";
+                    echo "<td>$descricao</td>";
+                    echo "<td><a href='editar.php?id=$id&descricao=$descricao' aria-label='Editar' data-microtip-position='up' role='tooltip'>
+					<img src='editar.png' id='edit' name='editar'  style='width:25px;'>
+                    </a></td>";
+                    echo "<td>
+					<button class='exclu' onclick='comentar2($id)' aria-label='Excluir' data-microtip-position='up' role='tooltip'>
+					<img src='lixeira.png' name='excluir' id='ex'  style='width:25px;'>
+					</button>
+					</td>";
+					echo "<td>$dias</td>";
+                    echo "</tr>"; 
+					}
+					}
+            ?>
+				</table>
 				<br><br>
-				<input type="button" name="botao1" id="bot2" value="add nova tarefa"/>
+				
 			</div>
 <!---feito------->
 			<div id="feito">
 				<h3>FEITO</h3>
-				<p id="campo3">1</p>
-				<!--<input type="text" name="comentario" id="text3">-->
+				<table border="1" class="tabelas">
+					<tr>
+						<th>Descrição</th>
+						<th class="tab">Editar</th>
+						<th class="tab">Excluir</th>
+						<th class="tab">Dias Restantes</th>
+					</tr>
+            <?php
+                   include "conexao.php";	
+					$sql = "SELECT * FROM tarefas";
+					$usere = $connection -> prepare($sql);
+					$usere -> execute();
+					$connection = NULL;
+					
+                    foreach($usere as $a){
+					$id = $a['id'];
+					$descricao = $a['descricao'];
+					$tipo = $a['tipo'];
+					$dias = $a['dias'];
+	
+					if($tipo == '3'){
+					echo "<tr>";
+                    echo "<td><a'>$descricao</a></td>";
+                    echo "<td><a href='editar.php?id=$id&descricao=$descricao' aria-label='Editar' data-microtip-position='up' role='tooltip'>
+					<img src='editar.png' id='edit' name='editar'  style='width:25px;'>
+                    </a></td>";
+                    echo "<td>
+					<button class='exclu' onclick='comentar2($id)' aria-label='Excluir' data-microtip-position='up' role='tooltip'>
+					<img src='lixeira.png' name='excluir' id='ex'  style='width:25px;'>
+					</button>
+                    </a></td>";
+					echo "<td>$dias</td>";
+                    echo "</tr>"; 
+					}
+					}
+            ?>
+				</table>
 				<br><br>
-				<input type="button" name="botao1" id="bot3" value="add nova tarefa"/>
+				
 			</div>
 		</div>
-<!---formulario 1------->
-		<div id="formulario1">
-			
-		</div>
-<!---formulario 2------->		
-			<div id="formulario2">
-			
-		</div>
-	<script src="pace.js"></script>
+		<br>
+		
+		
 
+	<script src="pace.js"></script>
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
 			<script type="text/javascript">
-			$(document).ready(function(){
+			$('#bot1').click(function(){
 			$.ajax({
 			url: 'cadastro.php',
 			success: function(data) {
@@ -134,18 +229,6 @@
 			});
 			});
 			
-			$('#edit').click(function(){
-			$.ajax({
-			url: 'edita.php',
-			success: function(data) {
-			$('#formulario2').html(data);
-			},
-			beforeSend: function(){
-			},
-			complete: function(){
-			}
-			});
-			});
 			</script>
 	</body>
 </html>

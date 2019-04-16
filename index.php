@@ -20,15 +20,11 @@
 			function comentarios(){
 				alertify.success('Cadastrado com sucesso!');
 			}
-
-			function aparecer(){
-				document.getElementById('formulario1').style.display = "block";
-				document.getElementById('enviar2').style.display = "block";
-				
-			}	
 			function voltar(){
 				document.getElementById('formulario1').style.display = "none";
-				document.getElementById('enviar2').style.display = "none";
+			}
+			function mostrar(){
+				document.getElementById('formulario1').style.display = "block";
 			}
 			function comentar2(id){
 				
@@ -39,7 +35,9 @@
 					alertify.success('Ok');
 					$.post('excluir.php',dados,function(retorna){
 						
-					
+						fazer();
+						fazendo();
+						feito();
 					});
 					
 				  },
@@ -48,20 +46,18 @@
 				  });
 				 } 
 			 
-				
+				function sumir(){
+					doc
+				}
 			</script>
 					
 	 
 	</head>
 	<body >
-<?php
-
-	
-?>	
 		<div id="menu">
 			<center><a aria-label='Adicionar um novo card' data-microtip-position='up' role='tooltip'>
-			<input type="button" name="botao1" id="bot1" onclick="aparecer()" value="ADD NOVO CARD" /></a>
-			<input type='button' id='enviar2' name='voltar'  onclick='voltar()' value="Voltar" style="display:none;"/></center><br>
+			<input type="button" name="botao1" onclick="mostrar()" id="bot1" value="ADD NOVO CARD" /></a></center><br>
+			
 			
 			<div id="formulario1">
 			

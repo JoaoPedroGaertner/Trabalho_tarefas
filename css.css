@@ -80,7 +80,7 @@
 	height:50px;
 	/* padding-left:3px; */
 }
-#enviar{
+#enviar, #enviar2{
 	/* padding-bottom:2px; */
 	/* padding:0px; */
     border: 2px #222E50 solid;
@@ -92,9 +92,9 @@
     box-sizing: border-box;
     margin-left:10px;
 	height:50px;
-	margin-left:120px;
+	/* margin-left:120px; */
 }
-#enviar2{
+{
     border: 2px #222E50 solid;
     border-radius: 5px;
     background-color: #246EB9;
@@ -110,7 +110,7 @@
 	margin-left:122px;
 	position:absolute;
 }
-#tip, #desc{
+.formulario{
 	border: 2px #222E50 solid;
     border-radius: 5px;
     color: white;
@@ -138,9 +138,7 @@
     color: white;
     left:15%;
 }
-#formulario1, #formulario2{
-	display:none;
-}
+
 #form, #form1, #form2{
 	background-color:gray;
 }

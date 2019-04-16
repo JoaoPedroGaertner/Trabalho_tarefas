@@ -6,7 +6,7 @@
 		 <link rel="stylesheet" href="css.css">
 		 <link rel="stylesheet" href="pace.css">
 		 <link rel="stylesheet" href="microtip.css">
-		<link href="/pace/themes/pace-theme-barber-shop.css" rel="stylesheet" /> 
+			
 		
 		<!-- include alertify.css -->
 		<link rel="stylesheet" href="css/alertify.css">
@@ -45,10 +45,8 @@
 					alertify.error('Cancel');
 				  });
 				 } 
-			 
-				function sumir(){
-					doc
-				}
+				
+				
 			</script>
 					
 	 
@@ -85,6 +83,9 @@
 			</div>
 		</div>
 		<br>
+		<div id="sla">
+		
+		</div>
 	<script src="pace.js"></script>
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
@@ -162,6 +163,7 @@
 			
 			});
 			setInterval(feito(),2000);
+						
 			</script>
 	</body>
 </html>

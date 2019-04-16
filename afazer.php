@@ -1,7 +1,7 @@
 
 
 <h3>A FAZER</h3>
-<table border="1" class="tabelas">
+<table border="1" class="tabelas" >
 						<tr>
 							<th>Descrição</th>
 							<th class="tab">Editar</th>
@@ -29,11 +29,11 @@
 					if($tipo == '1'){
 					echo "<tr>";
                     echo "<td>$descricao</td>";
-                    echo "<td><a href='editar.php?id=$id&descricao=$descricao' aria-label='Editar' data-microtip-position='up' role='tooltip'>
+                    echo "<td><a href='editar.php?id=$id&descricao=$descricao' aria-label='Editar' data-microtip-position='bottom-right' role='tooltip'>
 					<img src='editar.png' id='edit' name='editar'  style='width:25px;'>
                     </a></td>";
                     echo "<td>
-					<button class='exclu' onclick='comentar2($id)' aria-label='Excluir' data-microtip-position='up' role='tooltip'>
+					<button class='exclu' onclick='comentar2($id)' aria-label='Excluir' data-microtip-position='bottom-right' role='tooltip'>
 					<img src='lixeira.png' name='excluir' id='ex'  style='width:25px;'>
 					</button>
                     </td>";

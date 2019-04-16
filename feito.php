@@ -22,11 +22,11 @@
 					if($tipo == '3'){
 					echo "<tr>";
                     echo "<td><a'>$descricao</a></td>";
-                    echo "<td><a href='editar.php?id=$id&descricao=$descricao' aria-label='Editar' data-microtip-position='up' role='tooltip'>
+                    echo "<td><a href='editar.php?id=$id&descricao=$descricao' aria-label='Editar' data-microtip-position='bottom-right' role='tooltip'>
 					<img src='editar.png' id='edit' name='editar'  style='width:25px;'>
                     </a></td>";
                     echo "<td>
-					<button class='exclu' onclick='comentar2($id)' aria-label='Excluir' data-microtip-position='up' role='tooltip'>
+					<button class='exclu' onclick='comentar2($id)' aria-label='Excluir' data-microtip-position='bottom-right' role='tooltip'>
 					<img src='lixeira.png' name='excluir' id='ex'  style='width:25px;'>
 					</button>
                     </a></td>";

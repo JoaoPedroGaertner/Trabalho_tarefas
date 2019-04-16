@@ -1,8 +1,5 @@
 <?php	
 		
-		
-		session_start();
-		if(ISSET($_POST['salvar'])){
 			$id = "";
 			$descricao = $_POST['descricao'];
 			$tipo = $_POST['tipo'];
@@ -39,7 +36,7 @@
 			echo"<script>
 				window.history.back();
 			</script>";
-		}
+		
 		
 ?>
 

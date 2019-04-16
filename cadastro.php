@@ -1,11 +1,18 @@
 <?php
 
 	include "conexao.php";
-	include "cadastrar.php";
 
 
-echo "
-	<form id='form1' action='' method='POST'>
+
+			
+?>
+<html>
+	<head>
+		
+	</head>
+	<body>
+	
+		<form id='form1' method='POST'>
 		<p id='p1'><h2>Cadastrar novo card!</h2></p>
 			Descrição<br><textarea name='descricao' id='desc' maxlength='40' placeholder=''></textarea><br><br>
 			Tipo<br><select id='tip' name='tipo'>
@@ -18,19 +25,29 @@ echo "
 			Data atual<br><input type='date' name='data2' class='formulario'/><br><br>
 
 		
-		<input type='submit' id='enviar' name='salvar'  value='salvar' />
-		
+		<input type='submit' id='enviar' name='salvar'  value='salvar' />	
 		<br><br>
+	</form><br>	
+
+
+<script>
+			$('#form1').submit(function(e){
+				var info = $(this).serialize();
+				e.preventDefault();
+				$.ajax({
+					type: "POST",
+					url: "cadastrar.php",
+					data: info,
+					success: function(data){}
+			})
+			fazer();
+			fazendo();
+			feito();
+				return false;
+				
+			})
 			
-	</form><br>";				
 			
-?>
-<html>
-	<head>
-		<link rel="stylesheet" href="css.css">
-		
-	</head>
-	<body>
-		
+		</script>
 	</body>
 </html>

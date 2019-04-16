@@ -1,8 +1,4 @@
-<?php	
-	
-				
-	
-?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -51,17 +47,16 @@
 					alertify.error('Cancel');
 				  });
 				 } 
-			
+			 
+				
 			</script>
 					
 	 
 	</head>
 	<body >
 <?php
-	include "cadastrar.php";
-	// include "calculo.php";
-	// include "editar.php";
-	// include "excluir.php"
+
+	
 ?>	
 		<div id="menu">
 			<center><a aria-label='Adicionar um novo card' data-microtip-position='up' role='tooltip'>
@@ -77,141 +72,23 @@
 		
 <!----fazer------>
 			<div id="fazer">
-				<h3>A FAZER</h3>
-				<table border="1" class="tabelas">
-					<tr>
-						<th>Descrição</th>
-						<th class="tab">Editar</th>
-						<th class="tab">Excluir</th>
-						<th class="tab">Dias Restantes</th>
-					</tr>
-            <?php
-					include "conexao.php";	
-					$sql = "SELECT * FROM tarefas";
-					$usere = $connection -> prepare($sql);
-					$usere -> execute();
-					$connection = NULL;
-					
-                    foreach($usere as $a){
-					$id = $a['id'];
-					$descricao = $a['descricao'];
-					$tipo = $a['tipo'];
-					$dias = $a['dias'];
-					
-					
-					if($tipo == '1'){
-					echo "<tr>";
-                    echo "<td>$descricao</td>";
-                    echo "<td><a href='editar.php?id=$id&descricao=$descricao' aria-label='Editar' data-microtip-position='up' role='tooltip'>
-					<img src='editar.png' id='edit' name='editar'  style='width:25px;'>
-                    </a></td>";
-                    echo "<td>
-					<button class='exclu' onclick='comentar2($id)' aria-label='Excluir' data-microtip-position='up' role='tooltip'>
-					<img src='lixeira.png' name='excluir' id='ex'  style='width:25px;'>
-					</button>
-                    </td>";
-					echo "<td>$dias</td>";
-					// echo "<td><a href='calculo.php?id=$id'><img src='editar.png' id='edit' name='editar'  style='width:25px;'></a></td>";
-                    echo "</tr>"; 
-					}
-					}
-            ?>
-				</table>
-				<br><br>
 				
+					
+				<br><br>
 			</div>
 <!----fazendo------>
 			<div id="fazendo">
-				<h3>FAZENDO</h3>
-				<table border="1" class="tabelas">
-					<tr>
-						<th>Descrição</th>
-						<th class="tab">Editar</th>
-						<th class="tab">Excluir</th>
-						<th class="tab">Dias Restantes</th>
-					</tr>
-            <?php
-			
-				include "conexao.php";	
-					$sql = "SELECT * FROM tarefas";
-					$usere = $connection -> prepare($sql);
-					$usere -> execute();
-					$connection = NULL;
-					
-                    foreach($usere as $a){
-					$id = $a['id'];
-					$descricao = $a['descricao'];
-					$tipo = $a['tipo'];
-					$dias = $a['dias'];
-	
-					if($tipo == '2'){
-					echo "<tr>";
-                    echo "<td>$descricao</td>";
-                    echo "<td><a href='editar.php?id=$id&descricao=$descricao' aria-label='Editar' data-microtip-position='up' role='tooltip'>
-					<img src='editar.png' id='edit' name='editar'  style='width:25px;'>
-                    </a></td>";
-                    echo "<td>
-					<button class='exclu' onclick='comentar2($id)' aria-label='Excluir' data-microtip-position='up' role='tooltip'>
-					<img src='lixeira.png' name='excluir' id='ex'  style='width:25px;'>
-					</button>
-					</td>";
-					echo "<td>$dias</td>";
-                    echo "</tr>"; 
-					}
-					}
-            ?>
-				</table>
+				
 				<br><br>
 				
 			</div>
 <!---feito------->
 			<div id="feito">
-				<h3>FEITO</h3>
-				<table border="1" class="tabelas">
-					<tr>
-						<th>Descrição</th>
-						<th class="tab">Editar</th>
-						<th class="tab">Excluir</th>
-						<th class="tab">Dias Restantes</th>
-					</tr>
-            <?php
-                   include "conexao.php";	
-					$sql = "SELECT * FROM tarefas";
-					$usere = $connection -> prepare($sql);
-					$usere -> execute();
-					$connection = NULL;
-					
-                    foreach($usere as $a){
-					$id = $a['id'];
-					$descricao = $a['descricao'];
-					$tipo = $a['tipo'];
-					$dias = $a['dias'];
-	
-					if($tipo == '3'){
-					echo "<tr>";
-                    echo "<td><a'>$descricao</a></td>";
-                    echo "<td><a href='editar.php?id=$id&descricao=$descricao' aria-label='Editar' data-microtip-position='up' role='tooltip'>
-					<img src='editar.png' id='edit' name='editar'  style='width:25px;'>
-                    </a></td>";
-                    echo "<td>
-					<button class='exclu' onclick='comentar2($id)' aria-label='Excluir' data-microtip-position='up' role='tooltip'>
-					<img src='lixeira.png' name='excluir' id='ex'  style='width:25px;'>
-					</button>
-                    </a></td>";
-					echo "<td>$dias</td>";
-                    echo "</tr>"; 
-					}
-					}
-            ?>
-				</table>
-				<br><br>
 				
+				<br><br>	
 			</div>
 		</div>
 		<br>
-		
-		
-
 	<script src="pace.js"></script>
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
@@ -228,7 +105,67 @@
 			}
 			});
 			});
+
 			
+			function fazer(){
+			$.ajax({
+			url: 'afazer.php',
+			success: function(data) {
+			$('#fazer').html(data);
+			},
+			beforeSend: function(){
+			},
+			complete: function(){
+			}
+			});
+			};
+			fazer();
+			
+			$('#form1').submit(function(e){
+				fazer();
+			
+			});
+			setInterval(fazer(),2000);
+			
+			function fazendo(){
+			$.ajax({
+			url: 'fazendo.php',
+			success: function(data) {
+			$('#fazendo').html(data);
+			},
+			beforeSend: function(){
+			},
+			complete: function(){
+			}
+			});
+			};
+			fazendo();
+			
+			$('#form1').submit(function(e){
+				fazendo();
+			
+			});
+			setInterval(fazendo(),2000);
+			
+			function feito(){
+			$.ajax({
+			url: 'feito.php',
+			success: function(data) {
+			$('#feito').html(data);
+			},
+			beforeSend: function(){
+			},
+			complete: function(){
+			}
+			});
+			};
+			feito();
+			
+			$('#form1').submit(function(e){
+				feito();
+			
+			});
+			setInterval(feito(),2000);
 			</script>
 	</body>
 </html>
